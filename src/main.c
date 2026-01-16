@@ -3,10 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgodoy-m <jgodoy-m@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: aarias-d <aarias-d@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 21:29:41 by jgodoy-m          #+#    #+#             */
-/*   Updated: 2026/01/16 21:29:42 by jgodoy-m         ###   ########.fr       */
+/*   Updated: 2026/01/16 23:18:02 by aarias-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "minishell.h"
+
+int	main(void)
+{
+	return (0);
+}
