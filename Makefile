@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jgodoy-m <jgodoy-m@student.42malaga.com    +#+  +:+       +#+         #
+#    By: aarias-d <aarias-d@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/12 13:04:48 by jgodoy-m          #+#    #+#              #
-#    Updated: 2026/01/16 21:53:50 by jgodoy-m         ###   ########.fr        #
+#    Updated: 2026/01/16 23:06:30 by aarias-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ all: $(NAME)
 
 # Rule to create the fdf
 $(NAME): $(LIBFT) $(GNL_LIB) $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(GNL_LIB) $(LIBFT) -lXext -lX11 -lm -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(GNL_LIB) $(LIBFT) -o $(NAME)
 
 # Rule to build libft
 $(LIBFT):
