@@ -6,11 +6,11 @@
 #    By: aarias-d <aarias-d@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/12 13:04:48 by jgodoy-m          #+#    #+#              #
-#    Updated: 2026/01/16 23:06:30 by aarias-d         ###   ########.fr        #
+#    Updated: 2026/01/16 23:23:24 by aarias-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Library file name
+# Minishell file name
 NAME = minishell
 
 # Compiler and compilation flags
@@ -42,7 +42,7 @@ RM = rm -f
 # Rule that compiles everything by default
 all: $(NAME)
 
-# Rule to create the fdf
+# Rule to create the minishell
 $(NAME): $(LIBFT) $(GNL_LIB) $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(GNL_LIB) $(LIBFT) -o $(NAME)
 
@@ -55,7 +55,7 @@ $(GNL_LIB):
 	$(MAKE) -C $(GNL_DIR)
 
 # Convert .c files to .o
-%.o: %.c $(INCLUDE_DIR)/fdf.h
+%.o: %.c $(INCLUDE_DIR)/minishell.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 
