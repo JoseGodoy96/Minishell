@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute.c                                          :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarias-d <aarias-d@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/18 17:22:28 by aarias-d          #+#    #+#             */
-/*   Updated: 2026/01/18 20:53:40 by aarias-d         ###   ########.fr       */
+/*   Created: 2026/01/18 20:47:38 by aarias-d          #+#    #+#             */
+/*   Updated: 2026/01/18 20:48:12 by aarias-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-
-int	execute(t_cmd *cmd, char **envp)
+void	ft_free_matriz(char **matriz)
 {
-	char	*path;
+	int	i;
 
-	if (!cmd->argv)
+	if (!matriz)
+		return ;
+	i = 0;
+	while (matriz[i])
 	{
-		write(2, "Error command\n", 14);
-		return (1);
+		free(matriz[i]);
+		i++;
 	}
-	path = ft_get_path(envp, cmd->argv[0]);
-	if (!path)
-	{
-		write(2, "Command not found\n", 18);
-		return (1);
-	}
-	execve(path, cmd->argv, envp);
-	free(path);
-	perror("Execve");
-    return (1);
+	free(matriz);
 }
