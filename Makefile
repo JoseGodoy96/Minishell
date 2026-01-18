@@ -6,7 +6,7 @@
 #    By: aarias-d <aarias-d@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/12 13:04:48 by jgodoy-m          #+#    #+#              #
-#    Updated: 2026/01/16 23:23:24 by aarias-d         ###   ########.fr        #
+#    Updated: 2026/01/18 18:01:51 by aarias-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ LIBFT_DIR = ./libft
 GNL_DIR = ./gnl
 
 # Source files and object files
-SRC = 	$(SRC_DIR)/main.c 
+SRC = 	$(SRC_DIR)/main.c \
+		$(SRC_DIR)/executor/execute.c
 
 OBJ = $(SRC:.c=.o)
 
