@@ -6,7 +6,7 @@
 /*   By: aarias-d <aarias-d@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:22:28 by aarias-d          #+#    #+#             */
-/*   Updated: 2026/01/18 20:53:40 by aarias-d         ###   ########.fr       */
+/*   Updated: 2026/01/18 21:04:01 by aarias-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,5 @@
 
 int	execute(t_cmd *cmd, char **envp)
 {
-	char	*path;
-
-	if (!cmd->argv)
-	{
-		write(2, "Error command\n", 14);
-		return (1);
-	}
-	path = ft_get_path(envp, cmd->argv[0]);
-	if (!path)
-	{
-		write(2, "Command not found\n", 18);
-		return (1);
-	}
-	execve(path, cmd->argv, envp);
-	free(path);
-	perror("Execve");
-    return (1);
+	return(exec_single(cmd, envp));
 }

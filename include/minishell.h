@@ -6,7 +6,7 @@
 /*   By: aarias-d <aarias-d@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:01:41 by jgodoy-m          #+#    #+#             */
-/*   Updated: 2026/01/18 20:53:10 by aarias-d         ###   ########.fr       */
+/*   Updated: 2026/01/19 10:31:49 by aarias-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <sys/types.h>
+# include <sys/wait.h>
 # include "libft.h"
+
 
 typedef struct s_cmd
 {
@@ -29,6 +32,8 @@ typedef struct s_cmd
 /* - - - - - folder: executor - - - - - -*/
 /* - - - - - file: execute.c - - - - - -*/
 int	execute(t_cmd *cmd, char **envp);
+/* - - - - - file: exec_single.c - - - - - -*/
+int	exec_single(t_cmd *cmd, char **envp);
 /* - - - - - file: path_utils.c - - - - - -*/
 char	*ft_join_path(char *dir, char *cmd);
 char	*ft_get_path(char **envp, char *cmd);

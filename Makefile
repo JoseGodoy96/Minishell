@@ -6,7 +6,7 @@
 #    By: aarias-d <aarias-d@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/12 13:04:48 by jgodoy-m          #+#    #+#              #
-#    Updated: 2026/01/18 20:51:15 by aarias-d         ###   ########.fr        #
+#    Updated: 2026/01/19 00:04:21 by aarias-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ GNL_DIR = ./gnl
 # Source files and object files
 SRC = 	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/executor/execute.c \
+		$(SRC_DIR)/executor/exec_single.c \
 		$(SRC_DIR)/executor/path_utils.c \
 		$(SRC_DIR)/utils/free.c \
 
