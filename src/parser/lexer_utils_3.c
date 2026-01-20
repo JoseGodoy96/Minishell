@@ -6,7 +6,7 @@
 /*   By: jgodoy-m <jgodoy-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 21:47:37 by jgodoy-m          #+#    #+#             */
-/*   Updated: 2026/01/18 21:54:05 by jgodoy-m         ###   ########.fr       */
+/*   Updated: 2026/01/20 20:02:29 by jgodoy-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,55 @@ char	*read_word(const char *str, int *i)
 			return (NULL);
 	}
 	return (out);
+}
+
+int	is_metachar(char c)
+{
+	if (c == '|' || c == '<' || c == '>')
+		return (1);
+	return (0);
+}
+
+static t_toktype	condition_get_op(const char *str, int *i)
+{
+	if (str[*i] == '>')
+	{
+		if (str[*i + 1] == '>')
+		{
+			(*i) += 2;
+			return (T_REDIR_APP);
+		}
+		else
+		{
+			(*i)++;
+			return (T_REDIR_OUT);
+		}
+	}
+	return (T_WORD);
+}
+
+t_toktype	get_op_type(const char *str, int *i)
+{
+	t_toktype	toketype;
+
+	if (str[*i] == '|')
+	{
+		(*i)++;
+		return (T_PIPE);
+	}
+	if (str[*i] == '<')
+	{
+		if (str[*i + 1] == '<')
+		{
+			(*i) += 2;
+			return (T_HEREDOC);
+		}
+		else
+		{
+			(*i)++;
+			return (T_REDIR_IN);
+		}
+	}
+	toketype = condition_get_op(str, i);
+	return (toketype);
 }
