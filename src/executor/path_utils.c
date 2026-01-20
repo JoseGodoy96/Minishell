@@ -6,7 +6,7 @@
 /*   By: aarias-d <aarias-d@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 20:50:40 by aarias-d          #+#    #+#             */
-/*   Updated: 2026/01/18 20:53:51 by aarias-d         ###   ########.fr       */
+/*   Updated: 2026/01/20 20:36:11 by aarias-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_join_path(char *dir, char *cmd)
 		return (NULL);
 	path_tmp = ft_strjoin(dir, "/");
 	if (!path_tmp)
-		return(NULL);
+		return (NULL);
 	path_complete = ft_strjoin(path_tmp, cmd);
 	free(path_tmp);
 	path_tmp = NULL;
@@ -46,8 +46,8 @@ char	*ft_get_path(char **envp, char *cmd)
 	while (dir && dir[++i])
 	{
 		path_complete = ft_join_path(dir[i], cmd);
-			if (!path_complete || access(path_complete, X_OK) == 0)
-		break ;
+		if (!path_complete || access(path_complete, X_OK) == 0)
+			break ;
 		free(path_complete);
 		path_complete = NULL;
 	}

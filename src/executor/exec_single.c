@@ -6,7 +6,7 @@
 /*   By: aarias-d <aarias-d@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 21:04:22 by aarias-d          #+#    #+#             */
-/*   Updated: 2026/01/20 19:15:39 by aarias-d         ###   ########.fr       */
+/*   Updated: 2026/01/20 20:31:56 by aarias-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ int	ft_exec_single(t_cmd *cmd, char **envp)
 	if (WIFEXITED(status))
 		return (WEXITSTATUS(status));
 	else if (WIFSIGNALED(status))
-		return(128 + WTERMSIG(status));
+		return (128 + WTERMSIG (status));
 	return (1);
 }

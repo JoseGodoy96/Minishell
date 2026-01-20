@@ -6,7 +6,7 @@
 /*   By: aarias-d <aarias-d@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:01:41 by jgodoy-m          #+#    #+#             */
-/*   Updated: 2026/01/20 20:00:08 by aarias-d         ###   ########.fr       */
+/*   Updated: 2026/01/20 20:37:49 by aarias-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,12 @@
 # include <sys/wait.h>
 # include "libft.h"
 
-
 typedef struct s_cmd
 {
 	char			**argv;
 	struct s_redir	*redirs;
 	struct s_cmd	*next;
-} t_cmd;
-
+}	t_cmd;
 
 typedef enum e_toktype
 {
@@ -38,7 +36,6 @@ typedef enum e_toktype
 	T_REDIR_APP,
 	T_HEREDOC
 }	t_toktype;
-
 
 typedef struct s_token
 {
@@ -68,13 +65,13 @@ char	*read_word(const char *str, int *i);
 t_token	*lexer(const char *line);
 
 // execute.c 
-int	ft_execute(t_cmd *cmd, char **envp);
+int		ft_execute(t_cmd *cmd, char **envp);
 
 // exec_single.c 
-int	ft_exec_single(t_cmd *cmd, char **envp);
+int		ft_exec_single(t_cmd *cmd, char **envp);
 
 // exec_pipeline.c 
-int ft_exec_pipeline(t_cmd *cmd, char **envp );
+int		ft_exec_pipeline(t_cmd *cmd, char **envp);
 
 // path_utils.c 
 char	*ft_join_path(char *dir, char *cmd);
