@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aarias-d <aarias-d@student.42malaga.com    +#+  +:+       +#+         #
+#    By: jgodoy-m <jgodoy-m@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/12 13:04:48 by jgodoy-m          #+#    #+#              #
-#    Updated: 2026/01/16 23:23:24 by aarias-d         ###   ########.fr        #
+#    Updated: 2026/01/20 18:20:33 by jgodoy-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,21 @@ NAME = minishell
 # Compiler and compilation flags
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I$(INCLUDE_DIR) -I$(LIBFT_DIR)/include -I$(GNL_DIR)/include -g
+MAKEFLAGS += --no-print-directory
 
 # Define directories
 INCLUDE_DIR = ./include
 SRC_DIR = ./src
 LIBFT_DIR = ./libft
 GNL_DIR = ./gnl
+PARSER = /parser
 
 # Source files and object files
-SRC = 	$(SRC_DIR)/main.c 
+SRC = 	$(SRC_DIR)/main.c \
+		$(SRC_DIR)$(PARSER)/lexer_utils_1.c \
+		$(SRC_DIR)$(PARSER)/lexer_utils_2.c \
+		$(SRC_DIR)$(PARSER)/lexer_utils_3.c \
+		$(SRC_DIR)$(PARSER)/lexer.c 
 
 OBJ = $(SRC:.c=.o)
 
@@ -44,31 +50,35 @@ all: $(NAME)
 
 # Rule to create the minishell
 $(NAME): $(LIBFT) $(GNL_LIB) $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(GNL_LIB) $(LIBFT) -o $(NAME)
+	@echo "⚠️	compilando...	⚠️"
+	@$(CC) $(CFLAGS) $(OBJ) $(GNL_LIB) $(LIBFT) -o $(NAME)
+	@echo "✅	!!compilado!!	✅"
 
 # Rule to build libft
 $(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR)
+	@$(MAKE) -C $(LIBFT_DIR)
 
 # Rule to build gnl (expects gnl/Makefile to produce libgnl.a)
 $(GNL_LIB):
-	$(MAKE) -C $(GNL_DIR)
+	@$(MAKE) -C $(GNL_DIR)
 
 # Convert .c files to .o
 %.o: %.c $(INCLUDE_DIR)/minishell.h
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 
 # Rule to delete all created object files
 clean:
-	$(RM) $(OBJ)
-	$(MAKE) -C $(LIBFT_DIR) clean
-	$(MAKE) -C $(GNL_DIR) clean
+	@echo "🚮	Limpiado...	🚮"
+	@$(RM) $(OBJ)
+	@$(MAKE) -C $(LIBFT_DIR) clean
+	@$(MAKE) -C $(GNL_DIR) clean
+	@echo "✅	!Limpio!	✅"
 
 # Delete all .o and .a files
 fclean: clean
-	$(RM) $(NAME) $(LIBFT) $(GNL_LIB)
-	$(MAKE) -C $(LIBFT_DIR) fclean
-	$(MAKE) -C $(GNL_DIR) fclean
+	@$(RM) $(NAME) $(LIBFT) $(GNL_LIB)
+	@$(MAKE) -C $(LIBFT_DIR) fclean
+	@$(MAKE) -C $(GNL_DIR) fclean
 
 re: fclean all

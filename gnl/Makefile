@@ -6,7 +6,7 @@
 #    By: jgodoy-m <jgodoy-m@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/05 21:57:47 by jgodoy-m          #+#    #+#              #
-#    Updated: 2025/09/05 21:58:00 by jgodoy-m         ###   ########.fr        #
+#    Updated: 2026/01/16 23:38:38 by jgodoy-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,18 +42,18 @@ all: $(NAME)
 
 # Rule to create the gnl
 $(NAME): $(OBJ)
-	$(AR) $@ $^
+	@$(AR) $@ $^
 
 # Convert .c files to .o
 %.o: %.c $(INCLUDE)
-	$(CC) $(CFLAGS) -c -o $@ $<
+	@$(CC) $(CFLAGS) -c -o $@ $<
 
 # Rule to delete all created object files
 clean:
-	$(RM) $(OBJ)
+	@$(RM) $(OBJ)
 
 # Delete all .o and .a files
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all

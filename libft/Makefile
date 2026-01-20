@@ -6,7 +6,7 @@
 #    By: jgodoy-m <jgodoy-m@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/22 15:31:07 by jgodoy-m          #+#    #+#              #
-#    Updated: 2025/08/19 15:53:52 by jgodoy-m         ###   ########.fr        #
+#    Updated: 2026/01/16 23:37:36 by jgodoy-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,22 +81,22 @@ all: $(NAME)
 
 # Rule to create the library
 $(NAME): $(OBJ)
-	$(AR) $@ $^
+	@$(AR) $@ $^
 
 # Convert .c files to .o
 %.o: %.c $(INCLUDE)
-	$(CC) $(CFLAGS) -c -o $@ $<
+	@$(CC) $(CFLAGS) -c -o $@ $<
 
 # Rule for compiling bonus functions
 bonus: $(OBJ) $(BONUSOBJ)
-	$(AR) $(NAME) $^
+	@$(AR) $(NAME) $^
 
 # Rule to delete all created object files
 clean:
-	$(RM) $(OBJ) $(BONUSOBJ)
+	@$(RM) $(OBJ) $(BONUSOBJ)
 
 # Delete all .o and .a files
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
