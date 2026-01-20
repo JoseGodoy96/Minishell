@@ -6,7 +6,7 @@
 /*   By: aarias-d <aarias-d@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 21:04:22 by aarias-d          #+#    #+#             */
-/*   Updated: 2026/01/19 11:13:49 by aarias-d         ###   ########.fr       */
+/*   Updated: 2026/01/20 19:15:39 by aarias-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,18 @@ void	ft_child_execute(char *path, char **cmd, char **envp)
 	if (!path)
 	{
 		perror("Command not found");
+		ft_free_matriz(cmd);
+		free(path);
 		exit (127);
 	}
 	execve(path, cmd, envp);
+	ft_free_matriz(cmd);
+	free(path);
 	perror("Execve");
 	exit (1);
 }
 
-int	exec_single(t_cmd *cmd, char **envp)
+int	ft_exec_single(t_cmd *cmd, char **envp)
 {
 	pid_t	pid;
 	char	*path;
