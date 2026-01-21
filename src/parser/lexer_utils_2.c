@@ -6,7 +6,7 @@
 /*   By: jgodoy-m <jgodoy-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 21:46:06 by jgodoy-m          #+#    #+#             */
-/*   Updated: 2026/01/18 21:50:17 by jgodoy-m         ###   ########.fr       */
+/*   Updated: 2026/01/21 17:51:10 by jgodoy-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*read_unquoted(const char *str, int *i)
 	start = *i;
 	while (str[*i] != '\0')
 	{
-		if (!is_space(str[*i]) && !is_quote(str[*i]))
+		if (!is_space(str[*i]) && !is_quote(str[*i]) && !is_metachar(str[*i]))
 			(*i)++;
 		else
 		{

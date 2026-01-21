@@ -6,7 +6,7 @@
 /*   By: jgodoy-m <jgodoy-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 21:47:37 by jgodoy-m          #+#    #+#             */
-/*   Updated: 2026/01/20 20:02:29 by jgodoy-m         ###   ########.fr       */
+/*   Updated: 2026/01/21 18:57:52 by jgodoy-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*read_word(const char *str, int *i)
 	out = ft_strdup("");
 	if (!out)
 		return (NULL);
-	while (str[*i] != '\0' && !is_space(str[*i]))
+	while (str[*i] != '\0' && !is_space(str[*i]) && !is_metachar(str[*i]))
 	{
 		if (read_condition(out, &part, str, i))
 			return (NULL);
@@ -71,7 +71,8 @@ static t_toktype	condition_get_op(const char *str, int *i)
 	{
 		if (str[*i + 1] == '>')
 		{
-			(*i) += 2;
+			(*i)++;
+			(*i)++;
 			return (T_REDIR_APP);
 		}
 		else
@@ -96,7 +97,8 @@ t_toktype	get_op_type(const char *str, int *i)
 	{
 		if (str[*i + 1] == '<')
 		{
-			(*i) += 2;
+			(*i)++;
+			(*i)++;
 			return (T_HEREDOC);
 		}
 		else
