@@ -6,7 +6,7 @@
 #    By: aarias-d <aarias-d@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/12 13:04:48 by jgodoy-m          #+#    #+#              #
-#    Updated: 2026/01/21 20:22:44 by aarias-d         ###   ########.fr        #
+#    Updated: 2026/01/21 20:38:13 by aarias-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRC = 	$(SRC_DIR)/main.c \
 		$(SRC_DIR)$(BUILTINS)/builtins.c \
 		$(SRC_DIR)$(BUILTINS)/cd.c \
 		$(SRC_DIR)$(BUILTINS)/env.c \
+		$(SRC_DIR)$(BUILTINS)/pwd.c \
 		$(SRC_DIR)$(EXECUTOR)/execute.c \
 		$(SRC_DIR)$(EXECUTOR)/exec_single.c \
 		$(SRC_DIR)$(EXECUTOR)/path_utils.c \
