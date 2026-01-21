@@ -6,7 +6,7 @@
 /*   By: aarias-d <aarias-d@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 20:50:40 by aarias-d          #+#    #+#             */
-/*   Updated: 2026/01/20 20:36:11 by aarias-d         ###   ########.fr       */
+/*   Updated: 2026/01/21 18:10:00 by aarias-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,15 @@ char	*ft_get_path(char **envp, char *cmd)
 	char	**dir;
 	char	*path_complete;
 	int		i;
+	char	*path_var;
 
 	if (!cmd || !envp || !*envp)
 		return (NULL);
-	while (*envp && !ft_strnstr(*envp, "PATH=", 5))
-		envp++;
-	if (!*envp)
+	path_var = ft_env_get(envp, "PATH");
+	if (!path_var)
 		return (NULL);
 	i = -1;
-	dir = ft_split((*envp) + 5, ':');
+	dir = ft_split(path_var, ':');
 	path_complete = NULL;
 	while (dir && dir[++i])
 	{
@@ -51,6 +51,7 @@ char	*ft_get_path(char **envp, char *cmd)
 		free(path_complete);
 		path_complete = NULL;
 	}
+	free(path_var);
 	ft_free_matriz(dir);
 	return (path_complete);
 }
