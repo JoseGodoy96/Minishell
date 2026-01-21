@@ -6,7 +6,7 @@
 /*   By: aarias-d <aarias-d@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:01:41 by jgodoy-m          #+#    #+#             */
-/*   Updated: 2026/01/21 19:51:20 by aarias-d         ###   ########.fr       */
+/*   Updated: 2026/01/21 20:21:43 by aarias-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,7 @@ char	*ft_env_get(char **envp, char *var);
 
 // cd.c
 int		ft_exec_cd(t_cmd *cmd, char **envp);
+
+// env.c
+int		ft_exec_env(t_cmd *cmd, char **envp);
 #endif
