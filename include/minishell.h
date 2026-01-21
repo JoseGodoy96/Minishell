@@ -6,7 +6,7 @@
 /*   By: aarias-d <aarias-d@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:01:41 by jgodoy-m          #+#    #+#             */
-/*   Updated: 2026/01/21 20:37:53 by aarias-d         ###   ########.fr       */
+/*   Updated: 2026/01/21 21:31:29 by aarias-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,9 @@ int		ft_exec_cd(t_cmd *cmd, char **envp);
 int		ft_exec_env(t_cmd *cmd, char **envp);
 
 // pwd.c
-int	ft_exec_pwd(t_cmd *cmd, char **envp);
+int		ft_exec_pwd(t_cmd *cmd, char **envp);
+
+// echo.c
+int		ft_exec_echo(t_cmd *cmd);
 
 #endif

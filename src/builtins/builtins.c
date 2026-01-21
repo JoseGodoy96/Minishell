@@ -6,7 +6,7 @@
 /*   By: aarias-d <aarias-d@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 20:55:11 by aarias-d          #+#    #+#             */
-/*   Updated: 2026/01/21 20:48:53 by aarias-d         ###   ########.fr       */
+/*   Updated: 2026/01/21 21:33:18 by aarias-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_exec_builtins(t_cmd *cmd, char **envp)
 	if (ft_strncmp(cmd->argv[0], "cd", 3) == 0)
 		return (ft_exec_cd(cmd, envp));
 	if (ft_strncmp(cmd->argv[0], "echo", 5) == 0)
-		return (1);
+		return (ft_exec_echo(cmd));
 	if (ft_strncmp(cmd->argv[0], "pwd", 4) == 0)
 		return (ft_exec_pwd(cmd, envp));
 	if (ft_strncmp(cmd->argv[0], "env", 4) == 0)
