@@ -6,7 +6,7 @@
 /*   By: jgodoy-m <jgodoy-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 19:30:34 by jgodoy-m          #+#    #+#             */
-/*   Updated: 2026/01/21 19:30:39 by jgodoy-m         ###   ########.fr       */
+/*   Updated: 2026/01/21 19:40:51 by jgodoy-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ typedef struct s_cmd
 	struct s_redir	*redirs;
 	struct s_cmd	*next;
 }	t_cmd;
+
+typedef struct s_redir
+{
+	t_toktype		type;
+	char			*target;
+	struct s_redir	*next;
+}	t_redir;
+
 
 typedef enum e_toktype
 {
