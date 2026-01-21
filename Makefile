@@ -6,7 +6,7 @@
 #    By: aarias-d <aarias-d@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/12 13:04:48 by jgodoy-m          #+#    #+#              #
-#    Updated: 2026/01/20 19:42:44 by aarias-d         ###   ########.fr        #
+#    Updated: 2026/01/21 18:28:26 by aarias-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,18 +26,23 @@ GNL_DIR = ./gnl
 PARSER = /parser
 EXECUTOR = /executor
 UTILS = /utils
+BUILTINS = /builtins
+ENV = /env
+
 
 # Source files and object files
 SRC = 	$(SRC_DIR)/main.c \
+		$(SRC_DIR)$(BUILTINS)/builtins.c \
+		$(SRC_DIR)$(BUILTINS)/cd.c \
 		$(SRC_DIR)$(EXECUTOR)/execute.c \
 		$(SRC_DIR)$(EXECUTOR)/exec_single.c \
 		$(SRC_DIR)$(EXECUTOR)/path_utils.c \
+		$(SRC_DIR)$(ENV)/env_utils.c \
 		$(SRC_DIR)$(PARSER)/lexer_utils_1.c \
 		$(SRC_DIR)$(PARSER)/lexer_utils_2.c \
 		$(SRC_DIR)$(PARSER)/lexer_utils_3.c \
 		$(SRC_DIR)$(PARSER)/lexer.c \
 		$(SRC_DIR)$(UTILS)/free.c 
-
 
 OBJ = $(SRC:.c=.o)
 

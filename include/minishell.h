@@ -6,7 +6,7 @@
 /*   By: aarias-d <aarias-d@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:01:41 by jgodoy-m          #+#    #+#             */
-/*   Updated: 2026/01/20 21:02:35 by aarias-d         ###   ########.fr       */
+/*   Updated: 2026/01/21 19:51:20 by aarias-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,11 @@ void	ft_free_matriz(char **matriz);
 
 // builtins.c
 int		ft_is_builtin(char *cmd);
+int		ft_exec_builtins(t_cmd *cmd, char **envp);
 
+// env_utils.c
+char	*ft_env_get(char **envp, char *var);
+
+// cd.c
+int		ft_exec_cd(t_cmd *cmd, char **envp);
 #endif
