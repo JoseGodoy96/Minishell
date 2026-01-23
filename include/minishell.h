@@ -6,7 +6,7 @@
 /*   By: jgodoy-m <jgodoy-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 19:30:34 by jgodoy-m          #+#    #+#             */
-/*   Updated: 2026/01/21 19:40:51 by jgodoy-m         ###   ########.fr       */
+/*   Updated: 2026/01/23 20:03:03 by jgodoy-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 # include "libft.h"
+
+typedef struct s_strnode
+{
+	char				*s;
+	struct s_strnode	*next;
+}	t_strnode;
 
 typedef struct s_cmd
 {
@@ -33,7 +39,6 @@ typedef struct s_redir
 	char			*target;
 	struct s_redir	*next;
 }	t_redir;
-
 
 typedef enum e_toktype
 {
